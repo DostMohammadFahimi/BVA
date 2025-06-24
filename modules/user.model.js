@@ -21,10 +21,10 @@ const userSchema = new mongoose.Schema(
     assistantImage: {
       type: String,
     },
-    history: [{ type: string }],
+    history: [{ type: String }],
   },
-  { timeseries: true }
+  { timestamps: true }
 );
 
-const User = mongoose.model("User", "userSchema");
+const User = mongoose.model("User", userSchema);
 export default User;
