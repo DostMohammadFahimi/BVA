@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import User from "../modules/user.model.js";
 import genToken from "../config/token.js";
 
-export const singUp = async (req, res) => {
+export const signUp = async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const existEmail = await User.findOne({ email });
@@ -31,7 +31,7 @@ export const singUp = async (req, res) => {
     });
     return res.status(201).json(user);
   } catch (error) {
-    return res.status(500).json({ message: `sing up error ${error}` });
+    return res.status(500).json({ message: `sign up error ${error}` });
   }
 };
 
@@ -69,6 +69,6 @@ export const logOut = async (req, res) => {
       message: "logout sucssesfully",
     });
   } catch (error) {
-    return res.status(500).json({ message: `logout up error ${error}` });
+    return res.status(500).json({ message: `logout error ${error}` });
   }
 };
